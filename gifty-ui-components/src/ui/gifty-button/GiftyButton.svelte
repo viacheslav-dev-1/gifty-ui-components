@@ -31,7 +31,7 @@
 </script>
 
 <style lang="scss">
-    
+
     button { 
         display: flex;
         font-size: 16px;
@@ -42,6 +42,7 @@
         border: transparent 2px solid;
         color: var(--common-button-foreground);
         background: var(--common-button-background);
+        user-select: none;
 
         .text {
             margin-top: 1.7px;
