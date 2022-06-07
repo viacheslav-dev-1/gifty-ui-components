@@ -17,7 +17,6 @@ export const loadIcons = async (url, options) => {
         const responseText = await response.text();
         iconsXML = new window.DOMParser().parseFromString(responseText, 'text/xml');
         iconsLoaded.update(() => true);
-        
         return { success: true, error: null };
     } catch (error) {
         return { success: false, error };
@@ -38,6 +37,10 @@ export const icons = () => {
  * @returns { HTMLElement } Icon html element
  */
 export const icon = (id) => {
+    if (!iconsXML) {
+        return null;
+    }
+    
     return iconsXML.getElementById(id)
 }
 

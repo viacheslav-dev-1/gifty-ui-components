@@ -3,15 +3,21 @@
 
     // Props
     export let name;
-
-    // Component ref
-    export let ref = 'gifty-icon';
     
+    let loaded = false;
+    let iconHtml = null;
+    iconsLoaded.subscribe(it => {
+        if (it) {
+            loaded = it;
+            iconHtml = icon(name)?.outerHTML;
+        }
+    });
 </script>
 
-{#if $iconsLoaded}
-<span 
-{ref}>
-    {@html icon(name).outerHTML}
-</span>
+{#if loaded}
+    {#if iconHtml}
+        { @html iconHtml }
+    {:else}
+        { name }
+    {/if}
 {/if}

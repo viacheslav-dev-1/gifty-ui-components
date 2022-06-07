@@ -1,5 +1,6 @@
 <script>
     import { createEventDispatcher } from 'svelte';
+import GiftyIcon from '../gifty-icon/GiftyIcon.svelte';
 
     // Props
     export let showIcon = true;
@@ -127,11 +128,7 @@
 
     {#if showIcon}
         <slot name="icon">
-            <svg viewBox="0 0 27 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M2.08731 13.9719L0.458282 15.4815L19.0915 32.7488L20.7205 31.2392L2.08731 13.9719Z"/>
-                <path d="M18.7901 1.50965L17.1611 3.05176e-05L0.458296 15.4785L2.08733 16.9881L18.7901 1.50965Z"/>
-                <path d="M14.5873 14.6342L12.9583 16.1438L25.3463 27.6237L26.9753 26.1141L14.5873 14.6342Z"/>
-            </svg>
+            <GiftyIcon name="default-gifty" />
         </slot>
     {/if}
 
