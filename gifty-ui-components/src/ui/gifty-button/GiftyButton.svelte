@@ -43,6 +43,9 @@
         color: var(--common-button-foreground);
         background: var(--common-button-background);
         user-select: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
 
         .text {
             margin-top: 1.7px;

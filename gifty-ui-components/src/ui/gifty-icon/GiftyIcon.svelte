@@ -3,8 +3,6 @@
     import { onMount } from 'svelte';
     import { get } from 'svelte/store';
 
-    // Props
-
     /**
      * The icon id that should be provided in icon asset file.
      * It can be ignored if icon is loaded by src as an image
