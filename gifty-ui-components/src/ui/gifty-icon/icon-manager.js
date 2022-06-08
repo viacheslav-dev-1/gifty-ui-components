@@ -40,7 +40,6 @@ export const icon = (id) => {
     if (!iconsXML) {
         return null;
     }
-    
     return iconsXML.getElementById(id)
 }
 

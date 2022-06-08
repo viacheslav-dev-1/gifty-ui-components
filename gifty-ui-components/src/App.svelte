@@ -33,8 +33,10 @@ const onClick = (event) => {
 
 <div>
   <GiftyButton on:click="{onClick}">
-    <GiftyIcon name="settings" slot="icon"/>
+    <GiftyIcon id="settings" slot="icon"/>
     <span slot="text">Custom Text</span>
   </GiftyButton>
+  <br/>
+  
 </div>
 
