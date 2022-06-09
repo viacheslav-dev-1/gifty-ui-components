@@ -10,10 +10,6 @@
      */
     export let checked = false;
     /**
-     * Determine if include the indeterminate state in possible states  
-     */
-    export let includeIndeterminateState = false;
-    /**
      * Determine if checkbox is disabled
      */
     export let disabled = false;
@@ -29,18 +25,11 @@
     const dispatch = createEventDispatcher();
 
     const click = () => {
-        if (!includeIndeterminateState) {
-            checked = !checked;
-        } else {
-            if (checked === null || checked === undefined) {
-                checked = true;
-            } else {
-                checked = !checked;
-            }
-        }
-
+        checked = !checked;
         dispatch('check', { checked })
     }
+
+    const koef = 6;
 
 
 </script>
@@ -59,11 +48,12 @@
         .checkbox-container {
             padding: 3px;
             border-radius: 3px;
-            background: var(--common-button-background);
+            border: var(--common-button-foreground) 2px solid;
             display: flex;
             align-items: center;
 
             &.checked {
+                border: var(--main-accent) 2px solid;
                 background: var(--main-accent)
             }
         }
@@ -71,6 +61,7 @@
         .text {
             color: var(--common-button-foreground);
             margin-left: 8px;
+            margin-top: 1px;
 
             &.checked {
                 color: var(--main-accent)
@@ -89,7 +80,6 @@
         fill: var(--main-background); 
     }
     
-
 </style>
 
 <div
@@ -99,10 +89,10 @@ role="checkbox"
 class:disabled
 on:click="{click}"
 >
-    <div class="checkbox-container" class:checked style="{'width: ' + size + 'px; height: ' + size + 'px'}">
+    <div class="checkbox-container" class:checked style="{'width: ' + (size - koef) + 'px; height: ' + (size - koef) + 'px'}">
         {#if checked}
             <slot name="checkbox">
-                <svg class="gifty-checkbox" version="1.1" width="{size}" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 171 171">
+                <svg class="gifty-checkbox" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 171 171">
                     <path d="M5.79476,94.04359l13.43205,-13.43419l37.41053,38.47928l95.12944,-96.19819l13.44274,13.44274l-108.57004,107.51625z"></path>
                 </svg>
             </slot>
