@@ -25,12 +25,19 @@
     const dispatch = createEventDispatcher();
 
     const click = () => {
+        if (disabled) {
+            return;
+        }
         checked = !checked;
         dispatch('check', { checked })
     }
 
     const koef = 6;
 
+    const getContainerStyle = () => {
+        const diff = size - koef;
+        return `width: ${diff}px; height: ${diff}px`;
+    }
 
 </script>
 
@@ -76,10 +83,14 @@
         }
     }
 
-    :global(.checkbox-container svg path)  {
+    :global(.checkbox-container svg.gifty-checkbox path)  {
         fill: var(--main-background); 
     }
-    
+
+    :global(.checkbox-container svg.gifty-indetermine path)  {
+        fill: var(--common-button-foreground);
+    }
+
 </style>
 
 <div
@@ -89,11 +100,17 @@ role="checkbox"
 class:disabled
 on:click="{click}"
 >
-    <div class="checkbox-container" class:checked style="{'width: ' + (size - koef) + 'px; height: ' + (size - koef) + 'px'}">
+    <div class="checkbox-container" class:checked style="{getContainerStyle()}">
         {#if checked}
             <slot name="checkbox">
-                <svg class="gifty-checkbox" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 171 171">
-                    <path d="M5.79476,94.04359l13.43205,-13.43419l37.41053,38.47928l95.12944,-96.19819l13.44274,13.44274l-108.57004,107.51625z"></path>
+                <svg class="gifty-checkbox" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 42.17849 34.673191">
+                      <path d="M 0.38919888,21.877249 6.8176639,15.448215 13.848047,22.478598 35.892659,0.38186662 42.567687,6.6080486 13.841864,35.055057 Z" id="path815"/>
+                </svg>
+            </slot>
+        {:else if checked === null || checked === undefined}
+            <slot name="indetermine">
+                <svg style="margin-top:1px;" class="gifty-indetermine" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 33.932812 7.6457205" >
+                    <path d="M 0,0 V 7.6457205 H 33.932812 V 0 Z"/>
                 </svg>
             </slot>
         {/if}
