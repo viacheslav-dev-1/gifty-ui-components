@@ -6,6 +6,7 @@ import { applyTheme } from "./ui/gifty-theme/theme-manager";
 import { loadIcons } from "./ui/gifty-icon/icon-manager";
 import { onMount } from 'svelte';
 import GiftyCheckbox from "./ui/gifty-checkbox/GiftyCheckbox.svelte";
+import GiftyRadio from "./ui/gifty-radio/GiftyRadio.svelte";
 
 
 onMount(async () => {
@@ -37,7 +38,17 @@ const onClick = (event) => {
     <GiftyIcon id="settings" slot="icon"/>
     <span slot="text">Custom Text</span>
   </GiftyButton>
+
   <br/>
+
   <GiftyCheckbox text="Check Box" />
+
+  <br/>
+
+  <GiftyRadio text="Radio Button" />
+
+  <br/>
+
+
 </div>
 
