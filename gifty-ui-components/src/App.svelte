@@ -7,6 +7,7 @@ import { loadIcons } from "./ui/gifty-icon/icon-manager";
 import { onMount } from 'svelte';
 import GiftyCheckbox from "./ui/gifty-checkbox/GiftyCheckbox.svelte";
 import GiftyRadio from "./ui/gifty-radio/GiftyRadio.svelte";
+import GiftyRadioGroup from "./ui/gifty-radio-group/GiftyRadioGroup.svelte";
 
 
 onMount(async () => {
@@ -49,6 +50,10 @@ const onClick = (event) => {
 
   <br/>
 
+  <GiftyRadioGroup data = "{[ 
+    { id: 1, text: 'Option 1', checked: true },
+    { id: 2, text: 'Option 2', checked: false }
+  ]}" />
 
 </div>
 
