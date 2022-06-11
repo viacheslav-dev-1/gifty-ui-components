@@ -1,10 +1,6 @@
 <script>
     import { createEventDispatcher } from 'svelte';
-
-    /**
-     * Radio text
-     */
-    export let text = null;
+    
     /**
      * Radio state. Could be false, null or undefined - unchecked, true - checked
      */
@@ -94,14 +90,14 @@ on:click="{click}"
 >
     <div class="radio-container" class:checked style="{getContainerStyle()}">
         {#if checked}
-            <slot>
+            <slot name="radio">
                 <svg class="gifty-radio" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 120 120">
                     <circle cx="60" cy="60" r="50"/>
                 </svg>
             </slot>
         {/if}
     </div>
-    {#if text}
-        <div class="text" class:checked style="{'font-size: ' + size + 'px'}">{text}</div> 
-    {/if}
+    <div class="text" class:checked style="{'font-size: ' + size + 'px'}">
+        <slot name="text"></slot>
+    </div> 
 </div>

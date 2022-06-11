@@ -42,11 +42,15 @@ const onClick = (event) => {
 
   <br/>
 
-  <GiftyCheckbox text="Check Box" />
+  <GiftyCheckbox>
+    <span slot="text">Check Box</span>
+  </GiftyCheckbox>
 
   <br/>
 
-  <GiftyRadio text="Radio Button" />
+  <GiftyRadio>
+    <span slot="text">Radio Button</span>
+  </GiftyRadio>
 
   <br/>
 

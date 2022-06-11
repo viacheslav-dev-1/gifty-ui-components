@@ -68,12 +68,15 @@ class:vertical="{aligment === 'vertical'}"
 class:horizontal="{aligment === 'horizontal'}"
 style="{'gap: ' + gap + 'px'}">
     {#each options$ as d}
-        <GiftyRadio text={d.text} checked={d.checked} disabled={d.disabled || disabled} on:check="{() => click(d)}">
-            <slot>
+        <GiftyRadio checked={d.checked} disabled={d.disabled || disabled} on:check="{() => click(d)}">
+            <slot slot="radio">
                 <svg class="gifty-radio" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 120 120">
                     <circle cx="60" cy="60" r="50"/>
                 </svg>
             </slot>
+            <span class="radio-text-{d.id}" slot="text">
+                {d.text}
+            </span>
         </GiftyRadio>
     {/each}
 </div>

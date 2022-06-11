@@ -2,10 +2,6 @@
     import { createEventDispatcher } from 'svelte';
 
     /**
-     * Checkbox text
-     */
-    export let text = null;
-    /**
      * Checkbox state. Could be false - unchecked, true - checked, null or undefined - indeterminate
      */
     export let checked = false;
@@ -116,8 +112,8 @@ on:click="{click}"
         {/if}
         
     </div>
-    {#if text}
-        <div class="text" class:checked style="{'font-size: ' + size + 'px'}">{text}</div> 
-    {/if}
     
+    <div class="text" class:checked style="{'font-size: ' + size + 'px'}">
+        <slot name="text"></slot>
+    </div> 
 </div>
