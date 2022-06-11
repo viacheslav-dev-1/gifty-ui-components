@@ -70,9 +70,7 @@
                 color: var(--main-accent)
             }
         }
-
         
-
         &.disabled {
             opacity: var(--disable-opacity);
             cursor: default;
@@ -115,5 +113,5 @@ on:click="{click}"
     
     <div class="text" class:checked style="{'font-size: ' + size + 'px'}">
         <slot name="text"></slot>
-    </div> 
+    </div>
 </div>

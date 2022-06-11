@@ -8,6 +8,7 @@ import { onMount } from 'svelte';
 import GiftyCheckbox from "./ui/gifty-checkbox/GiftyCheckbox.svelte";
 import GiftyRadio from "./ui/gifty-radio/GiftyRadio.svelte";
 import GiftyRadioGroup from "./ui/gifty-radio-group/GiftyRadioGroup.svelte";
+import GiftyToggle from "./ui/gifty-toggle/GiftyToggle.svelte";
 
 
 onMount(async () => {
@@ -58,6 +59,13 @@ const onClick = (event) => {
     { id: 1, text: 'Option 1', checked: true },
     { id: 2, text: 'Option 2', checked: false }
   ]}" />
+
+  <br/>
+
+  <GiftyToggle>
+    <span slot="text">Toggle</span>
+  </GiftyToggle>
+
 
 </div>
 
