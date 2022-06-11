@@ -37,10 +37,15 @@
 
         options$.forEach(it => it.checked = checkedItem.id === it.id);
         options$ = options$;
-        dispatch('change', { checkedItem })
+        selectedOption && selectedOption.id === checkedItem.id ||
+            dispatch('change', { checkedItem });
+        
+        selectedOption = checkedItem;
     }
 
     $: options$ = data ?? [];
+
+    let selectedOption = data?.filter(it => it.checked)[0];
 
 </script>
 
