@@ -9,6 +9,7 @@ import GiftyCheckbox from "./ui/gifty-checkbox/GiftyCheckbox.svelte";
 import GiftyRadio from "./ui/gifty-radio/GiftyRadio.svelte";
 import GiftyRadioGroup from "./ui/gifty-radio-group/GiftyRadioGroup.svelte";
 import GiftyToggle from "./ui/gifty-toggle/GiftyToggle.svelte";
+import GiftyToggleButton from "./ui/gifty-button-toggle/GiftyToggleButton.svelte";
 
 
 onMount(async () => {
@@ -38,7 +39,7 @@ const onClick = (event) => {
 <div>
   <GiftyButton on:click="{onClick}">
     <GiftyIcon id="settings" slot="icon"/>
-    <span slot="text">Custom Text</span>
+    <span slot="text">Button</span>
   </GiftyButton>
 
   <br/>
@@ -57,8 +58,9 @@ const onClick = (event) => {
 
   <GiftyRadioGroup data = "{[ 
     { id: 1, text: 'Option 1', checked: true },
-    { id: 2, text: 'Option 2', checked: false }
-  ]}" />
+    { id: 2, text: 'Option 2', checked: false },
+    { id: 3, text: 'Option 3', checked: false }
+  ]}" aligment='horizontal' />
 
   <br/>
 
@@ -66,6 +68,12 @@ const onClick = (event) => {
     <span slot="text">Toggle</span>
   </GiftyToggle>
 
+  <br/>
+
+  <GiftyToggleButton data = "{[
+    { id: 1, text: 'Button 1', icon: 'settings', selected: true },
+    { id: 2, text: 'Button 2', icon: 'settings', selected: false },
+    { id: 3, text: 'Button 3', icon: 'settings', selected: false }
+  ]}" />
 
 </div>
-
