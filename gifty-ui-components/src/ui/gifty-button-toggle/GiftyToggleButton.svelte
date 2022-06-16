@@ -76,6 +76,7 @@
 <style lang="scss">
     .gifty-toggle-button {
         display: flex;
+        width: fit-content;
 
         &.not-rounded {
 
