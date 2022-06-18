@@ -1,7 +1,6 @@
 <script>
     import { createEventDispatcher } from "svelte"; 
     import GiftyButton from "../gifty-button/GiftyButton.svelte";
-    import GiftyIcon from "../gifty-icon/GiftyIcon.svelte";
 
     /**
      * Data for passing to toggle button. Shoud be in the following format { id, text, icon, selected, disabled }.
@@ -111,11 +110,9 @@ class:not-rounded="{!buttonsWithRoundedBorders}">
                 ref="gifty-toggle-button-gifty-button"
                 selected="{d.selected}" 
                 disabled="{d.disabled || disabled}"
-                type="{getButtonType(d)}"
-                on:click="{() => click(d)}">
-                    <GiftyIcon id="{d.icon}" slot="icon"/>
-                    <span slot="text">{d.text}</span>   
-            </GiftyButton>
+                text="{d.text}"
+                icon="{d.icon}"
+                on:click="{() => click(d)}"/>
             {#if i !== options$.length - 1}
                 <div class="devider" style="{"width: "+ devider + "px"}"></div>
             {/if}

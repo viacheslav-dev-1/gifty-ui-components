@@ -1,6 +1,11 @@
 <script>
     import { createEventDispatcher } from 'svelte';
+    import GiftyIcon from '../gifty-icon/GiftyIcon.svelte';
 
+    /**
+     * Checkbox text
+     */
+    export let text = "";
     /**
      * Checkbox state. Could be false - unchecked, true - checked, null or undefined - indeterminate
      */
@@ -13,6 +18,14 @@
      * Checkbox size
      */
     export let size = 16;
+    /**
+     * Checkmark icon
+     */
+    export let checkmarkIcon = '';
+    /**
+     * Indeterminate icon
+     */
+     export let indeterminateIcon = '';
     /**
      * Gifty Checkbox reference
      */
@@ -77,11 +90,11 @@
         }
     }
 
-    :global(.checkbox-container svg.gifty-checkbox path)  {
+    :global(.checkbox-container svg.gifty-checkmark-icon path)  {
         fill: var(--main-background); 
     }
 
-    :global(.checkbox-container svg.gifty-indetermine path)  {
+    :global(.checkbox-container svg.gifty-indetermine-icon path)  {
         fill: var(--common-button-foreground);
     }
 
@@ -96,22 +109,26 @@ on:click="{click}"
 >
     <div class="checkbox-container" class:checked style="{getContainerStyle()}">
         {#if checked}
-            <slot name="checkbox">
-                <svg class="gifty-checkbox" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 42.17849 34.673191">
-                      <path d="M 0.38919888,21.877249 6.8176639,15.448215 13.848047,22.478598 35.892659,0.38186662 42.567687,6.6080486 13.841864,35.055057 Z" id="path815"/>
+            {#if !checkmarkIcon}
+                <svg class="gifty-checkmark-icon" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 42.17849 34.673191">
+                    <path d="M 0.38919888,21.877249 6.8176639,15.448215 13.848047,22.478598 35.892659,0.38186662 42.567687,6.6080486 13.841864,35.055057 Z" id="path815"/>
                 </svg>
-            </slot>
+            {:else}
+                <GiftyIcon className="gifty-checkmark-icon" id="{checkmarkIcon}" />
+            {/if}
         {:else if checked === null || checked === undefined}
-            <slot name="indetermine">
+            {#if !indeterminateIcon}
                 <svg style="margin-top:1px;" class="gifty-indetermine" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 33.932812 7.6457205" >
                     <path d="M 0,0 V 7.6457205 H 33.932812 V 0 Z"/>
                 </svg>
-            </slot>
+            {:else}
+                <GiftyIcon className="gifty-indetermine-icon" id="{indeterminateIcon}" /> 
+            {/if}
         {/if}
         
     </div>
     
     <div class="text" class:checked style="{'font-size: ' + size + 'px'}">
-        <slot name="text"></slot>
+        {text}
     </div>
 </div>

@@ -2,6 +2,10 @@
     import { createEventDispatcher } from 'svelte';
     
     /**
+     * Checkbox text
+     */
+    export let text = "";
+    /**
      * Toggle state. Could be false, null or undefined - unchecked, true - checked
      */
     export let checked = false;
@@ -105,6 +109,6 @@ on:click="{click}">
         <label for="switch"></label>
     </div>
     <div class="text" class:checked>
-        <slot name="text"></slot>
+        {text}
     </div>
 </div>

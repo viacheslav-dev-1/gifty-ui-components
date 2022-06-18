@@ -1,10 +1,15 @@
 <script>
     import { createEventDispatcher } from 'svelte';
+    import GiftyIcon from '../gifty-icon/GiftyIcon.svelte';
 
     /**
-     * Type of button. Could be: "icon-and-text", "icon", "text"
+     * Button icon
      */
-    export let type = 'icon-and-text'
+    export let icon = '';
+    /**
+     * Button text
+     */
+    export let text = '';
     /**
      * Determine if button is rounded or not
     */
@@ -26,14 +31,13 @@
      */
     export let disabled = false;
     /**
-     * Determine if animate button on hover (scale up) or not
-     */
-    export let animateOnHover = false;
-    /**
      * Determine if button is without background
      */
     export let withoutBackground = false;
-
+    /**
+     * Button size
+     */
+    export let size = 16;
     /**
      * Gifty Button component ref
      */
@@ -55,9 +59,8 @@
 
 <style lang="scss">
 
-    button { 
+    .gifty-button { 
         display: flex;
-        font-size: 16px;
         align-items: center;
         padding: 10px 15px;
         border-radius: 5px;
@@ -100,24 +103,10 @@
         &.disabled {
             opacity: var(--disable-opacity);
             cursor: default;
-
-            &.animate-on-hover:hover {
-                transform: scale(1);
-            }
         }
 
         &.disabled:active {
             background: var(--common-button-background);
-        }
-
-        &.animate-on-hover {
-            transform: scale(1);
-            transition: var(--animation-time);
-        }
-
-        &.animate-on-hover:hover {
-            transform: scale(var(--scale-size));
-            transition: var(--animation-time);
         }
 
         &.without-background {
@@ -133,12 +122,8 @@
         }
     }
 
-    button:active {
+    .gifty-button:active {
         background: var(--common-button-active-background);
-    }
-
-    :global(.gifty-button svg) {
-        width: 20px;
     }
 
     :global(.gifty-button svg path)  {
@@ -154,7 +139,6 @@
 <button
 {ref}
     class="gifty-button"
-    class:animate-on-hover="{animateOnHover}" 
     class:selected="{isSelected}"
     class:rounded 
     class:with-shadow="{withShadow}"
@@ -162,21 +146,16 @@
     class:without-background="{withoutBackground}"
     disabled="{disabled}"
     on:click="{click}"
+    style="font-size: {size}px"
     >
 
-    {#if type === 'icon-and-text' || type === 'icon'}
-        <slot name="icon">
-            <svg id="default-gifty" viewBox="0 0 27 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M2.08731 13.9719L0.458282 15.4815L19.0915 32.7488L20.7205 31.2392L2.08731 13.9719Z"/>
-                <path d="M18.7901 1.50965L17.1611 3.05176e-05L0.458296 15.4785L2.08733 16.9881L18.7901 1.50965Z"/>
-                <path d="M14.5873 14.6342L12.9583 16.1438L25.3463 27.6237L26.9753 26.1141L14.5873 14.6342Z"/>
-            </svg>
-        </slot>
+    {#if icon}
+        <GiftyIcon width="{(size + 4)}" className="gifty-button-icon" id="{icon}"/>
     {/if}
 
-    {#if type === 'icon-and-text' || type === 'text'}
-        <span class="text" class:ml="{type === 'icon-and-text'}">
-            <slot name="text">Gifty Button</slot>
+    {#if text}
+        <span class="text" style="{icon && ('margin-left: ' + (size - 4) + 'px')}">
+            {text}
         </span>
     {/if}
 

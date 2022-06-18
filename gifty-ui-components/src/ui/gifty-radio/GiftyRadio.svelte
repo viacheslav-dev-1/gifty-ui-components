@@ -1,6 +1,11 @@
 <script>
     import { createEventDispatcher } from 'svelte';
+    import GiftyIcon from '../gifty-icon/GiftyIcon.svelte';
     
+     /**
+     * Radio text
+     */
+     export let text = "";
     /**
      * Radio state. Could be false, null or undefined - unchecked, true - checked
      */
@@ -13,6 +18,10 @@
      * Radio size
      */
     export let size = 16;
+    /**
+    * Radio icon
+    */
+     export let radioIcon = '';
     /**
      * Gifty Radio reference
      */
@@ -76,7 +85,7 @@
         }
     }
 
-    :global(.radio-container svg.gifty-radio circle)  {
+    :global(.radio-container svg.gifty-radio-icon circle)  {
         fill: var(--main-accent); 
     }
 </style>
@@ -90,14 +99,16 @@ on:click="{click}"
 >
     <div class="radio-container" class:checked style="{getContainerStyle()}">
         {#if checked}
-            <slot name="radio">
-                <svg class="gifty-radio" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 120 120">
+            {#if !radioIcon}
+                <svg class="gifty-radio-icon" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 120 120">
                     <circle cx="60" cy="60" r="50"/>
                 </svg>
-            </slot>
+            {:else}
+                <GiftyIcon className="gifty-radio-icon" id="{radioIcon}" />
+            {/if}
         {/if}
     </div>
     <div class="text" class:checked style="{'font-size: ' + size + 'px'}">
-        <slot name="text"></slot>
+        {text}
     </div> 
 </div>

@@ -9,6 +9,10 @@
      */
     export let id = null;
     /**
+     * The icon class name
+     */
+    export let className = '';
+    /**
      * Icon width. If not provided, the width will be provided as in the icon asset file
      */
     export let width = null;
@@ -59,7 +63,7 @@
             fill && (svg.style.fill = fill);
             stroke && (svg.style.stroke = stroke);
             strokeWidth && (svg.style.strokeWidth = strokeWidth);
-
+            className && svg.setAttribute('class', className);
             iconHtml = svg.outerHTML;
         }
     }
