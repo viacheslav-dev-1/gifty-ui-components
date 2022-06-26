@@ -85,10 +85,8 @@
     };
 
     const getLeftLabelMargin = () => {
-        if (!leftIcon) {
-            return "margin-left: 2px;";
-        } else {
-            return `margin-left: 25px;`;
+        if (leftIcon) {
+            return 'margin-left: 25px;';
         }
     }
 
@@ -105,7 +103,6 @@
 
         .input-label {
             position: absolute;
-            margin-left: 2px;
             cursor: text;
             transition: 0.1s;
             -webkit-user-select: none;
@@ -131,6 +128,7 @@
             background: none;
             width: 100%;
             font-size: 14px;
+            padding-left: 0px;
 
             &.pl {
                 padding-left: 5px;
@@ -164,6 +162,7 @@
         width: 14px;
         cursor: pointer;
         border-radius: 100px;
+        padding-left: 2px;
     }
 
     :global(.gifty-text-input svg.clear-button-icon path) {

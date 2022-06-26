@@ -24,6 +24,10 @@
      */
     export let disabled = false;
     /**
+     * Toggle button size
+     */
+     export let size = 16;
+    /**
      * Gifty Toggle Button reference
      */
     export let ref = "gifty-toggle-button";
@@ -112,6 +116,7 @@ class:not-rounded="{!buttonsWithRoundedBorders}">
                 disabled="{d.disabled || disabled}"
                 text="{d.text}"
                 icon="{d.icon}"
+                {size}
                 on:click="{() => click(d)}"/>
             {#if i !== options$.length - 1}
                 <div class="devider" style="{"width: "+ devider + "px"}"></div>
