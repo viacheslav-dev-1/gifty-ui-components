@@ -138,6 +138,8 @@ const themes = [
             {
                 name: 'light',
                 changedParams: [
+                    { name: '--main-accent', value: '#789AF0' },
+                    { name: '--main-accent-light', value: '#adc4ff' },
                     { name: '--main-background', value: '#FBFBFB' },
                     { name: '--secondary-background', value: '#EBEBEB' },
                     { name: '--common-button-background', value: '#e3e3e3' },
@@ -150,6 +152,8 @@ const themes = [
             {
                 name: 'dark',
                 changedParams: [
+                    { name: '--main-accent', value: '#a3bdff' },
+                    { name: '--main-accent-light', value: '#6782c7' },
                     { name: '--main-background', value: '#414141' },
                     { name: '--secondary-background', value: '#303030' },
                     { name: '--common-button-background', value: '#616161' },
