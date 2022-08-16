@@ -138,12 +138,12 @@ const themes = [
             {
                 name: 'light',
                 changedParams: [
-                    { name: '--main-accent', value: '#789AF0' },
-                    { name: '--main-accent-light', value: '#adc4ff' },
+                    { name: '--main-accent', value: '#455A8F' },
+                    { name: '--main-accent-light', value: '#6c8fe7' },
                     { name: '--main-background', value: '#FBFBFB' },
                     { name: '--secondary-background', value: '#EBEBEB' },
-                    { name: '--common-button-background', value: '#e3e3e3' },
-                    { name: '--common-button-foreground', value: '#666666' },
+                    { name: '--common-button-background', value: '#E0E0E0' },
+                    { name: '--common-button-foreground', value: '#525252' },
                     { name: '--common-button-active-background', value: '#c3c3c3' },
                     { name: '--selected-button-background', value: '#f1f4fd' },
                     { name: '--selected-button-active-background', value: '#e1e9ff' }

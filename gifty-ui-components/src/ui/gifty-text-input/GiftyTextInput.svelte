@@ -7,6 +7,11 @@
      * Type of field. Could be text, password, email, url, phone
      */
     export let type = "text";
+
+    /**
+     * Type of styling of field. Could be null, filled, outlined
+     */
+    export let styling = "";
     /**
      * Text label for input
      */
@@ -109,6 +114,7 @@
             -moz-user-select: none;
             -ms-user-select: none;
             user-select: none;
+            margin-top: -2px;
 
             &.focused {
                 font-size: 11px;

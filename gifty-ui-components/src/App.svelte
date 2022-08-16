@@ -29,10 +29,6 @@ const onClick = (event) => {
 
 </script>
 
-<style lang="scss">
-
-</style>
-
 
 <h2>Components</h2>
 <hr> 
@@ -74,3 +70,4 @@ const onClick = (event) => {
   <GiftyTextInput label="Input" width="300px" /><br/>
 
 </div>
+

@@ -4,14 +4,14 @@
 --error: #f85268;
 --light: #fff;
 
---main-accent: #789AF0;
---main-accent-dark: #6782c7;
---main-accent-light: #adc4ff;
+--main-accent: #455A8F;
+--main-accent-dark: #364770;
+--main-accent-light: #6c8fe7;
 --main-background: #FBFBFB;
 --secondary-background: #EBEBEB;
---common-button-background: #e3e3e3;
---common-button-foreground: #666666;
---common-button-darker-background: #cbcbcb;
+--common-button-background: #E0E0E0;
+--common-button-foreground: #525252;
+--common-button-darker-background: #bababa;
 --common-button-active-background: #c3c3c3;
 --selected-button-background: #f1f4fd;
 --selected-button-active-background: #e1e9ff;
